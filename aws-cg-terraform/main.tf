@@ -1,6 +1,7 @@
 # Specify the provider and access details
 provider "aws" {
   region = "${var.aws_region}"
+  profile = "groupanizer"
 }
 
 # Create a VPC to launch our instances into
@@ -134,9 +135,10 @@ resource "aws_instance" "web" {
   # this should be on port 80
   provisioner "remote-exec" {
     inline = [
+      "sudo add-apt-repository -y ppa:ondrej/php"
       "sudo apt-get -y update",
-      "sudo apt-get -y install nginx",
-      "sudo service nginx start",
+      "sudo apt-get install -y php5.6-fpm"
+      "sudo apt-get -y install nginx git",
     ]
   }
 }
