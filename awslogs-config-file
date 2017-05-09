@@ -1,0 +1,18 @@
+[general]
+state_file = /var/awslogs/state/agent-state
+
+[ErrorLog]
+log_group_name = NGINX
+log_stream_name = ErrorLogCombined
+file = /var/log/nginx/error.log
+datetime_format = %b %d %H:%M:%S
+buffer_duration = 5000
+initial_position = end_of_file
+
+[AccessLog]
+log_group_name = NGINX
+log_stream_name = AccessLogCombined
+file = /var/log/nginx/access.log
+datetime_format = %b %d %H:%M:%S
+buffer_duration = 5000
+initial_position = end_of_file
