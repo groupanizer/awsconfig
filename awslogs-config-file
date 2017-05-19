@@ -16,3 +16,10 @@ file = /var/log/nginx/access.log
 datetime_format = %b %d %H:%M:%S
 buffer_duration = 5000
 initial_position = end_of_file
+
+[MailLog]
+log_group_name = Mail
+log_stream_name = Mail Log
+file = /var/log/mail.log
+datetime_format = %b %d %H:%M:%S
+initial_position = end_of_file
